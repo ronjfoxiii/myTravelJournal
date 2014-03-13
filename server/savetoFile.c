@@ -7,18 +7,18 @@
 int main() {
 
 
-	saveToFile("39°57′N", "75°10′W", "Philadelphia"); 
+	saveToFile("39°57′N", "75°10′W", "Philadelphia", "username.txt"); 
 
-	readFromFile("log.txt");
+	readFromFile("username.txt");
 
   
   exit(0);
 }
 
 
-int saveToFile(char *lat, char *lon, char *title)
+int saveToFile(char *lat, char *lon, char *title, char *filename)
 {
-	FILE *f = fopen("log.txt", "a");
+	FILE *f = fopen(filename, "a");
 	
 	if (f == NULL)
 	{
