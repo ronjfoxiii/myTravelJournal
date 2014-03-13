@@ -9,6 +9,7 @@ int main() {
 
 	saveToFile("39°57′N", "75°10′W", "Philadelphia"); 
 
+	readFromFile("log.txt");
 
   
   exit(0);
@@ -17,7 +18,7 @@ int main() {
 
 int saveToFile(char *lat, char *lon, char *title)
 {
-	FILE *f = fopen("log.txt", "w");
+	FILE *f = fopen("log.txt", "a");
 	
 	if (f == NULL)
 	{
@@ -27,7 +28,7 @@ int saveToFile(char *lat, char *lon, char *title)
 	
 	fprintf(f, "%s,", lat);
 	fprintf(f, "%s,", lon);
-	fprintf(f, "%s/n", title);
+	fprintf(f, "%s\n", title);
 	
 	fclose(f);
 
@@ -36,7 +37,14 @@ int saveToFile(char *lat, char *lon, char *title)
 
 int readFromFile(char *filename)
 {
-
+	char str[999];
+	FILE * file;
+	file = fopen(filename, "r");
+	if (file) {
+		while (fscanf(file, "%s", str)!=EOF)
+			printf("%s",str);
+		fclose(file);
+	}
 
 }
 
