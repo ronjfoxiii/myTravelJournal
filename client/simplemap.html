@@ -42,7 +42,8 @@
             max-width: 100%;
           }
 
-          button[type="submit"] {
+          button[type="submit"],
+					button[name="delete"] {
             background: #1c1c1c;
             width: 100px;
             height: 24px;
@@ -52,6 +53,10 @@
             border: 0;
             display: block;
           }
+
+					button[name="delete"] {
+						background: #DD3333;
+					}
 
           .latlong .field {
             width: 50%;
